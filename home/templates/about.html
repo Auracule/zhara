@@ -1,0 +1,97 @@
+
+{% extends 'base.html' %}
+
+{% block title %} | About Us {% endblock title %}
+
+{% load static %}
+
+{% block nav2 %}    {% include 'nav2.html' %}    {% endblock nav2 %} 
+
+{% block nav1 %}    {% include 'nav1.html' %}    {% endblock nav1 %}     
+
+{% block carousel %}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="height: 35vh;">
+      <div class="carousel-item h-100 active">
+        <img src="{% static '' %}img/sebastian-coman-photography-6CtMdQBhUiE-unsplash.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-md-block great">
+          <h5 class="uus">About Us</h5>
+          <p class="fredus"><span class="gree">Home/</span> <span>About</span></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock carousel %}
+
+{% block content %}
+
+<div class="mb-5 bout">
+  <div class="container">
+    <div class="both">
+      <h2 class="mt-5 mb-5 wel" data-aos="fade-up" data-aos-duration="3000"><span class="jemm">About</span> <span class="jem">Zhara's Hotel & Suite</span></h2>
+      <h6 class="horizon"></h6>
+    </div>
+      <div class="davido" data-aos="fade-up" data-aos-duration="3000">
+      <p class="mb-2 gbas">Zharah Hotels & Suites is the most preferred hotel in West Africa and it's all about the right mix! Located in the heart of Victoria Island and shielded from the
+           hustle and bustle of the Lagos metropolis, we offer our corporate clients and walk in guests a perfect blend of relaxation, activities, and African tradition
+            delicately infused to meet the highest international standards.</p>
+      <p class="mb-2 gbas" data-aos="fade-up" data-aos-duration="3000">
+          Overlooking the Zharah Atlantic City and Ocean, it is just a 10-minute drive to the City Centre and only 45minutes away from the Airport.
+      </p>
+      <p class="mb-2 gbas" data-aos="fade-up" data-aos-duration="3000">
+          Our hotels are designed for your comfort and convenience. Your security is our primary concern and you'll find our customer care second to none.
+      </p>
+      <p class="mb-2 gbas" data-aos="fade-up" data-aos-duration="3000">
+          Our hotel has taken important steps to live up to West Africa's future model in the hospitality sector. With the best conference and banqueting facilities,
+           tastefully furnished to a 7000-seater capacity, a world-class swimming pool, 824 excellently furnished rooms spread across 3 hotels: ZHARA SIGNATURE,
+            ZHARA SUITES AND ZHARA HOTEL, mostly with a choice of city and sea views. We have 9 different restaurants and 7 different bars serving a
+             range of international cuisines, amongst other facilities.
+      </p>
+      <p class="mb-2 gbas" data-aos="fade-up" data-aos-duration="3000">
+          The hotel is equipped with a state of the art health and fitness centre comprising of a gym, a tennis/basket ball court, a volley ball court, a sauna, spa,
+           salon, and nail studio. We have an in-house medical clinic as well.
+      </p>
+      <p class="mb-2 gbas" data-aos="fade-up" data-aos-duration="3000">
+          We host the best themed buffet every Friday evening where we serve specialties across the globe: Africa, Asia, America, Italy, Mexico Middle East and
+           Mongolia amongst others.
+      </p>
+      <p class="mb-2 gbas" data-aos="fade-up" data-aos-duration="3000">
+          We are passionate about serving you and look forward to having you.
+      </p>
+      <p class="mb-2 gbas" data-aos="fade-up" data-aos-duration="3000">
+          Welcome to Zharah Hotels & Suites, Nesting International Standards with African Hospitality.
+      </p>
+  </div>
+  </div>
+</div>
+
+<div class="container mb-5 mt-5">
+  <h2 class="mt-5 mb-5 wel" data-aos="fade-up" data-aos-duration="3000"><span class="jemm">Our</span> <span class="jem">Vision & Mission</span></h2>
+  <ul class="friend" data-aos="fade-up" data-aos-duration="3000">
+      <li>We aspire to be the leading and preferred hotel in West Africa</li>
+      <li>We are committed to exceeding guests' expectations</li>
+      <li>We are proud to deliver genuine care, comfort and warmth to all our guests</li>
+      <li>We are dedicated to providing impeccable facilities and personalized services</li>
+      <li>We are constantly adapting to an ever-changing world</li>
+      <li>We pursue growth and development through continuous learning</li>
+  </ul>
+</div>
+
+<div class="container mb-5 mt-5">
+  <h2 class="mt-5 mb-5 wel" data-aos="fade-up" data-aos-duration="3000"><span class="jemm">Our</span> <span class="jem">Values</span></h2>
+  
+  <ul class="friend" data-aos="fade-up" data-aos-duration="3000">
+      <li>Passion</li>
+      <li>Integrity and Discipline</li>
+      <li>Socially and Environmentally Responsible</li>
+      <li>Dedication</li>
+      <li>Growth</li>
+  </ul>
+</div>
+
+
+{% endblock content %}          
+
+{% block footer %}    {% include 'footer.html' %}    {% endblock footer %}       

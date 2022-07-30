@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block title %} | Booked{% endblock title %}
+
+{% load humanize %}
+
+{% block nav2 %}    {% include 'nav2.html' %}    {% endblock nav2 %} 
+
+{% block nav1 %}    {% include 'nav1.html' %}    {% endblock nav1 %}     
+
+{% block carousel %}
+
+
+
+{% endblock carousel %}
+
+
+{% block content %}
+
+  <div class="container mb-5 mt-5">
+    <div class="both">
+      <h2 class="wel" data-aos="fade-up" data-aos-duration="3000"><span class="jem">Transaction Summary</span></h2>
+      <h6 class="horizon"></h6>
+    </div>
+
+    <div class="fantasia mb-5" data-aos="fade-up" data-aos-duration="3000">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-10">       
+              <div class="table-responsive blame">
+                  <h5 class="text-center hed">Transaction Summary</h5>
+                  <table class="table blame">
+                      <thead>
+                        <tr>   
+                          <th scope="col">Details</th>
+                          <th scope="col">Recipient Name</th>
+                          <th scope="row">Room</th>
+                          <th scope="row">Price</th>
+                          <th scope="row">Day(s)</th>
+                          <th scope="row">Amount</th>
+                          <th scope="row">Check-in date</th>
+                          <th scope="row">Check-out date</th>
+                          <th scope="row">del</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% if booked %}
+                          {% for item in booked %}
+                            <tr>
+                              <td></td>
+                              <td>{{profile.first_name}}</td>
+                              <td>{{item.room.name_r}}</td>
+                              <td>{{item.room.price_r}}</td>
+                              <td>{{item.no_days}}</td>
+                              <td>{{item.amount}}</td>
+                              <form action="{% url 'change' %}" method="POST">
+                              {% csrf_token %}
+                                <td>{{item.check_in}}
+                                    <input type="hidden" name="new" value="{{item.id}}">
+                                    <input type="date" name="chckin" id="">
+                                </td>
+                                <td>{{item.check_out}}
+                                    <input type="hidden" name="new" value="{{item.id}}">
+                                    <input type="date" name="chckout">
+                                    <button type="submit" onclick="return confirm('Press enter in you want to change check out date. Else Cancel')"><i class="fas fa-check-circle"></i></button>
+                                </td>  
+                              </form>
+                              <td>
+                                <form action="{% url 'cancel' %}" method="POST">
+                                {% csrf_token %}
+                                  <input type="hidden" name="roomid" value="{{item.id}}">
+                                  <button type="submit" onclick= "return confirm('Are you sure you want to cancel reservation?')"><i class="fas fa-times"></i></button>
+                                </form>
+                              </td>
+                            </tr>
+                          {% endfor %}
+                        {% endif %}
+                      </tbody>
+                    </table>
+                    <table class="blame">
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>Subtotal:  {{subtotal|floatformat:2|intcomma}}</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>vat (7.5%):  {{vat|floatformat:2}}</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>Total:  {{total|floatformat:2|intcomma}}</td>
+                        </tr>
+                      </tbody>    
+                  </table>
+               </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="container mt-5 mb-5">
+      <div class="row justify-content-center">
+        <div class="col-10">
+      <div class="bag">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed shadow-none bloom checkbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Checkout
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div class="mt-5 table-responsive drag">
+                  <h5 class="hed">Transaction Summary</h5>
+
+                  <table class="table">
+                      <thead>
+                        <tr> 
+                          <th scope="col">Details</th>
+                          <th scope="col">Recipient Name</th>
+                          <th scope="col">Room</th>
+                          <th scope="row">Day(s)</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody class="checkout">
+                      </tbody>
+                     </table>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed shadow-none bloom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Client Details
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div class="p-5 sform">
+                  <form action="{% url 'pay' %}" method="POST">
+                  {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">First Name</label>
+                            <input type="text" value="{{profile.first_name|title}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">Last Name</label>
+                            <input type="text" value="{{profile.last_name|title}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" value="{{profile.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">Phone</label>
+                            <input type="text" value="{{profile.phone}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+                        <input type="hidden" name="total" value="{{total}}">
+                        <button type="submit" class="w-25 p-1 lambebe">Book</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+{% endblock content %}
+
+{% block footer %}    {% include 'footer.html' %}    {% endblock footer %}       

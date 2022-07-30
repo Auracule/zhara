@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} | Callback/ {{profile.user.username}} {% endblock title %}
+
+{% load humanize %}
+
+{% block nav2 %}    {% include 'nav2.html' %}    {% endblock nav2 %} 
+
+{% block nav1 %}    {% include 'nav1.html' %}    {% endblock nav1 %}     
+
+{% block content %}
+
+<div class="container mb-5 mt-5">
+    <div class="both">
+      <h2 class="wel" data-aos="fade-up" data-aos-duration="3000"><span class="jem">Transaction</span></h2>
+      <h6 class="horizon"></h6>
+    </div>
+
+    <div class="fantasia mb-5" data-aos="fade-up" data-aos-duration="3000">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-10 col-sm-10 blame">
+             <p><h3 class="best">Dear {{profile.first_name}} {{profile.last_name}},</h3> Your Transaction is Successful!. WE Hope you enjoy every bit of your stay in our Hotel.</p>
+             <p>We celebrate our most esteemed customer...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block footer %}    {% include 'footer.html' %}    {% endblock footer %}

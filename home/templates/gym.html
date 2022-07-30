@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | Gym{% endblock title %}
+
+{% block nav2 %}    {% include 'nav2.html' %}    {% endblock nav2 %} 
+
+{% block nav1 %}    {% include 'nav1.html' %}    {% endblock nav1 %}     
+
+{% block carousel %}
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="height: 40vh;">
+      <div class="carousel-item h-100 active">
+        <img src="{% static '' %}img/andrew-valdivia-AB7TcT_GVU0-unsplash.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-md-block great">
+            <h5 class="uus">Gymnasium</h5>
+            <p class="fredus"><span class="gree">Home/ Recreational center</span> <span>/ Gymnasium</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock carousel %}
+
+{% block content %}
+
+  <div class="container mb-5 mt-5"> 
+    <div class="both">
+      <h2 class="wel"><span class="jem">Gymnasium</span></h2>
+      <h6 class="horizon"></h6>
+    </div>
+    <div class="fantasia mb-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2"></div>
+          <div class="col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 pe-auto">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" style="height: 100vh;">
+                <div class="carousel-item h-100 active">
+                  <img src="{% static '' %}img/ambitious-creative-co-rick-barrett-g_bglWB48JA-unsplash.jpg" class="d-block w-100 kegg" alt="...">
+                </div>
+                <div class="carousel-item h-100">
+                  <img src="{% static '' %}img/j-ahmed-sait-LWP7l0zsNqs-unsplash.jpg" class="d-block w-100 kegg" alt="...">
+                </div>
+                <div class="carousel-item h-100">
+                  <img src="{% static '' %}img/sam-moghadam-khamseh-0sa8D74iodI-unsplash.jpg" class="d-block w-100 kegg" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"></div>
+        </div>
+      </div>
+  </div>
+
+    <p class="gbas">Our well-equipped gym with steaming rooms are accessible to our in-house fit fam junkies, and comes with an available instructor. Access to the gym for outside guests are only available to members only.</p>
+    <p class="gbas">Opening Time: Monday - Sunday (7am - 8pm)</p>
+
+    
+  </div>
+
+  
+
+{% endblock content %}      
+
+{% block footer %}    {% include 'footer.html' %}    {% endblock footer %}       

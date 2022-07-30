@@ -1,0 +1,84 @@
+
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fell" href="{% url 'index' %}">Zharah's Hotel & Suites</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse papa" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{% url 'index' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
+              <li><a class="dropdown-item" href="{% url 'contacts' %}">Contact Us</a></li> 
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'rooms' %}">Rooms</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{% url 'rooms' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'categories' %}">All Categories</a></li>
+              {% if categories %}
+                {% for item in categories %}
+                    <li><a class="dropdown-item" href="{% url 'category' item.id %}">{{item.name}}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Meetings & event
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'fantasia' %}">Fantasia</a></li>
+              <li><a class="dropdown-item" href="{% url 'meeting' %}">Meeting Room</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Recreational services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'swimming' %}">Swimming Pool</a></li>
+              <li><a class="dropdown-item" href="{% url 'gym' %}">Gym</a></li>
+              <li><a class="dropdown-item" href="{% url 'tennis' %}">Tennis Court</a></li>
+              <li><a class="dropdown-item" href="{% url 'spa' %}">Spa</a></li>
+              <li><a class="dropdown-item" href="{% url 'salon' %}">Salon & Nail Studio</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user-alt"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {% if user.is_authenticated %}
+                <li><a class="dropdown-item" href="{% url 'signout' %}">Signout</a></li>
+                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'booked' %}">Booked</a></li>
+              {% else %}
+                <li><a class="dropdown-item" href="{% url 'signup' %}">Register</a></li>
+                <li><a class="dropdown-item" href="{% url 'signin' %}">Signin</a></li>
+              {% endif %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+      <strong> {{message}} </strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}

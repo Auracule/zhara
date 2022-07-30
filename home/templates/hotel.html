@@ -1,0 +1,26 @@
+
+
+ <div class="hotle">
+    <div class="container pb-5 gy-5">
+      <div class="both">
+        <h2 class="text-center wel" data-aos="fade-up" data-aos-duration="3000"><span class="jemm">Our </span> <span class="jem">Hotel</span></h2>
+        <h6 class="horizon"></h6>
+      </div>
+      <div class="row justify-content-center">
+        {% if categories %}
+          {% for item in categories %}       
+            <div class="col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mb-5" data-aos="zoom-in-down" data-aos-duration="3000">
+              <div class="card wembley1">
+                <img src="{{item.img.url}}" class="card-img-top w-100  imgg" alt="...">
+                <div class="card-body wembley">
+                  <h5 class="card-title sam">Zhara's {{item.name|title}}</h5>
+                  <p class="card-text samm">{{item.description_c|slice:100}}..</p>
+                  <a href="{% url 'category' item.id %}" class="fiew">view more...</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>

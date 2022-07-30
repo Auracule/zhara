@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{room.name_r}} Details {% endblock title %}
+
+{% load static %}
+
+{% block nav2 %}    {% include 'nav2.html' %}    {% endblock nav2 %} 
+
+{% block nav1 %}    {% include 'nav1.html' %}    {% endblock nav1 %}     
+
+{% block carousel %}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="height: 35vh;">
+      <div class="carousel-item h-100 active">
+        <img src="{% static '' %}img/sebastian-coman-photography-6CtMdQBhUiE-unsplash.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-md-block great">
+          <h5 class="uus">Room Detail</h5>
+          <p class="fredus"><span class="gree">Home/</span> <span>Detail</span></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock carousel %}
+
+{% block content %}
+
+  <div class="container mb-5 mt-5">  
+    <div class="both">
+      <h2 class="wel" data-aos="fade-up" data-aos-duration="3000"><span class="jem">Details</span></h2>
+      <h6 class="horizon"></h6>
+    </div>
+
+    <div class="fantasia mb-5" data-aos="fade-up" data-aos-duration="3000">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"></div>
+          <div class="col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 me-auto justify-content-center">
+            <div class="card">
+              <img src="{{room.img_r.url}}" class="card-img-top" alt="...">
+              <div class="card-body p-4">
+                <h5 class="card-title">Room No: {{room.name_r}}</h5>
+                <p class="card-text d-block">Info: </p>
+                  <ul>
+                    <li><span><i class="fas fa-wifi"></i></span> <span>WIFi in lobby</span></li>
+                    <li><span><i class="fas fa-swimming-pool"></i></span> <span>Pool</span></li>
+                    <li><span><i class="fas fa-dumbbell"></i></span> <span>Gym</span></li>
+                    <li><span><i class="fas fa-spa"></i></span> <span>Spa</span></li>
+                  </ul>
+                    <form action="{% url 'booking' %}" method="POST">
+                    {% csrf_token %}
+                      <div class="d-flex base">
+                        <div class="mb-2">
+                          <p><label for="adult"> No of Adult</label>
+                          {{room.adult_no}}
+                        </p>
+                        </div>
+
+                        <div class="mb-2">
+                          <p><label for="childern"> No of Children</label>
+                          {{room.kids_no}}
+                        </p>
+                          <input type="hidden" value="{{room.id}}" name="roomid" class="w-75">
+                        </div>
+                      </div>
+                      <div class="d-flex text-center base">
+                        <div class="p-1">
+                            <label for="checkin">Checkin:</label>
+                            <input type="date" name="checkin">
+                        </div>
+                          <div class="p-1">
+                            <label for="checkout">Checkout:</label>
+                            <input type="date" name="checkout">
+                          </div>
+                        </div>
+                        <button type="submit" class="w-25 btn fave">Reserve</button>  
+                      </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}
+
+{% block footer %}    {% include 'footer.html' %}    {% endblock footer %}       

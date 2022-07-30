@@ -1,0 +1,76 @@
+<div class="contact">
+    <div class="both">
+      <h2 class="wel"><span class="jem">Contact </span><span class="jemm">Us</span></h2>
+      <h6 class="horizon"></h6>
+    </div>
+    <div class="container-fluid contacta">
+      <div class="map" data-aos="fade-up" data-aos-duration="3000">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126845.96885321761!2d3.29348845735
+        46537!3d6.529701167762812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9228fa2a3999%3A0xd7a8324
+        bddbba1f0!2sIkeja!5e0!3m2!1sen!2sng!4v1657906462075!5m2!1sen!2sng" style="border:0;" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-10 col-sm-10 col-md-10 col-lg-5 col-xl-5" data-aos="fade-up" data-aos-duration="3000">
+          <div class="container">
+            <div class="address">
+              <h4 class="text-center addre">Information</h4>
+              <div class="add d-flex">
+                <span class="ress"><i class="fas fa-map-marker-alt"></i></span>
+                <span></span>
+                <span class="p-3 mb-3 res">
+                  <p>ADDRESS</p>
+                  <p>Plot 1415 Adetokunbo Ademola Street, PMB 12724, Victoria Island, Lagos Nigeria</p>
+                </span>
+              </div>
+              <div class="add d-flex">
+                <span class="ress"><i class="fas fa-phone-alt"></i></span>
+                <span></span>
+                <span class="p-3 mb-3 res">
+                  <p>PHONE / FAX</p>
+                  <p>+234 1 3881901-34 , +234 1 357391 (ext.4175, 6200, 6060, 6767, 6324, 6259)</p>
+                </span>
+              </div>
+              <div class="add d-flex">
+                <span class="ress"><i class="fas fa-envelope"></i></span>
+                <span></span>
+                <span class="p-3 mb- res">
+                  <p>E-MAIL</p>
+                  <p>sales@zharahotels.com, reservation@zharahotels.com, banquet@ekohotels.com</p>
+                </span>
+              </div>
+            </div>
+          </div>  
+        </div>
+        <div class="col-10 col-sm-10 col-md-10 col-lg-5 col-xl-5" data-aos="fade-up" data-aos-duration="3000">
+          <div class="cform">
+            <div class="ccform">
+              <h3 class="text-uppercase text-center name">Get in touch with us</h3>
+                  <form action="{% url 'contact' %}" method="POST">
+                  {% csrf_token %}
+                    <div class="mb-4">
+                      <label for="exampleInputText1" class="form-label">Full Name</label>
+                      <input type="tex" name="full_name" class="form-control" placeholder="Enter Your Full Name" id="exampleInputText1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-4">
+                      <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                      <input type="email" name="email" class="form-control" placeholder="Enter Your Email Adress" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-4">
+                      <label for="messages">Enter Your Message</label>
+                      <textarea name="message" id="" cols="30" placeholder="Enter Your Message" rows="10"></textarea>
+                      <div id="emailHelp" class="form-text jango">*All fields are compulsary.</div>
+                    </div>   
+                    <button type="submit" class="btn jump">Send Message</button>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5 mt-5" data-aos="fade-up" data-aos-duration="3000">
+    <div class="text-center leggo">
+      <h1 class="legg">If you have any questions don't hesitate to contact us.</h1>
+    </div>
+  </div>

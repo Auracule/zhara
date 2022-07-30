@@ -1,0 +1,23 @@
+{% load humanize %}
+
+    {% if booked %}
+        {% for item in booked %}
+            <tr>
+                <td></td>
+                <td>{{item.user.first_name}}  {{item.user.last_name}}</td>
+                <td>{{item.room.name_r}}</td>
+                <td>{{item.no_days}}</td>     
+            </tr>
+        {% endfor %}
+    {% endif %}
+
+    <table class="table">
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total:{{total|floatformat:2|intcomma}}</td>
+          </tr>
+        </tbody>
+    </table>

@@ -1,0 +1,49 @@
+
+
+ <div class="gallery">
+    <div class="container pt-5 pb-5">
+      <div class="both">
+        <h2 class="wel"><span class="jem">Our </span><span class="jemm">Gallery</span></h2>
+        <h6 class="horizon"></h6>
+      </div>
+      <div id="carouselExampleIndicators" class="carousel slide dark" data-bs-ride="carousel">
+        <div class="carousel-inner" style="height: 40vh;">
+          <div class="carousel-item h-100 active">
+            <div class="row justify-content-center h-100">
+              {% if slide1 %}
+                {% for item in slide1 %}
+                  <div class="col-10 col-sm-10-col-md-3 col-lg-3 col-xl-3">
+                    <img src="{{item.gallery.url}}" class="w-100 h-100 imgg" alt="...">
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+          <div class="carousel-item h-100">
+            <div></div>
+            <div class="row justify-content-center">
+              {% if slide2 %}
+                {% for item in slide2 %}
+                  <div class="col-10 col-sm-10-col-md-3 col-lg-3 col-xl-3">
+                    <img src="{{item.gallery.url}}" class="w-100 h-100  imgg" alt="...">
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+          <div class="carousel-item h-100">
+            <div></div>
+            <div class="row justify-content-center">
+              {% if slide3 %}
+                {% for item in slide3 %}
+                  <div class="col-10 col-sm-10-col-md-3 col-lg-3 col-xl-3">
+                    <img src="{{item.gallery.url}}" class="w-100 h-100  imgg" alt="...">
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{profile.first_name}}'s Profile{% endblock title %}
+
+{% load static %}
+
+{% block nav2 %}    {% include 'nav2.html' %}    {% endblock nav2 %} 
+
+{% block nav1 %}    {% include 'nav1.html' %}    {% endblock nav1 %}     
+
+{% block carousel %}
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="height: 40vh;">
+            <div class="carousel-item h-100 active">
+                <img src="{{profile.pix.url}}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-md-block great">
+                    <h5 class="uus">Profile</h5>
+                    <p class="fredus"><span class="gree">Home/</span> <span>{{profile.first_name}} profile</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock carousel %}
+
+{% block content %}
+<div class="container mb-5 mt-5">
+    <div class="both">
+      <h2 class="wel" data-aos="fade-up" data-aos-duration="3000"><span class="jem">{{profile.first_name}}s' profile</span></h2>
+      <h6 class="horizon"></h6>
+    </div>
+
+    <div class="fantasia mb-5" data-aos="fade-up" data-aos-duration="3000">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+            <img src="{{profile.pix.url}}" class="w-75" alt="">
+          </div>
+          <div class="col-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
+              <div class="sform">
+                  <form>
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">First Name</label>
+                            <input type="text" value="{{profile.first_name|title}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">Last Name</label>
+                            <input type="text" value="{{profile.last_name|title}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" value="{{profile.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">Phone</label>
+                            <input type="text" value="{{profile.phone}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">Home Address</label>
+                            <input type="text" value="{{profile.address|title}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">State</label>
+                            <input type="text" value="{{profile.state|title}}" class="form-control" id="exampleInputText1" aria-describedby="emailHelp">
+                        </div>
+                    </form>
+              </div>
+          </div>
+          <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+            <ul class="ms-2 mt-5 list-unstyled falz">
+              <li class="mb-4"><a href="{% url 'index' %}" class="btn btn-success w-75">Home</a></li>
+              <li class="mb-4"><a href="{% url 'rooms' %}" class="btn btn-success w-75">Rooms</a></li>
+              <li class="mb-4"><a href="{% url 'profile' %}" class="btn btn-success w-75">Profile</a></li>
+              <li class="mb-4"><a href="{% url 'profile_update' %}" class="btn btn-success w-75">Profile_update</a></li>
+              <li class="mb-4"><a href="{% url 'password' %}" class="btn btn-success w-75">Password Update</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock content %}
+
+{% block footer %}    {% include 'footer.html' %}    {% endblock footer %}       

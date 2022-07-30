@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} | Contact Us{% endblock title %}
+
+{% load static %}
+
+{% block nav2 %}    {% include 'nav2.html' %}    {% endblock nav2 %} 
+
+{% block nav1 %}    {% include 'nav1.html' %}    {% endblock nav1 %}     
+
+{% block carousel %}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="height: 40vh;">
+      <div class="carousel-item h-100 active">
+        <img src="{% static '' %}img/kirill-x_VOtnVJeGE-unsplash.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-md-block great">
+            <h5 class="uus" data-aos="fade-up" data-aos-duration="3000">Contact Us</h5>
+            <p class="fredus" data-aos="fade-up" data-aos-duration="3000"><span class="gree">Home/</span> <span>Contact</span></p>
+            <!-- <div class="fredi"> -->
+                <ul class="list-inline fredi">
+                    <li class="list-inline-item"><i class="fas fa-envelope"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-address-card"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-comment"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-phone-alt"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-at"></i></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock carousel %}
+
+{% block contact %}    {% include 'contact.html' %}      {% endblock contact %}          
+
+{% block footer %}    {% include 'footer.html' %}    {% endblock footer %}       
