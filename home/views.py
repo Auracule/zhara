@@ -281,7 +281,7 @@ def booked(request):
     total = 0
 
     for item in booked:
-        subtotal = item.price_b * item.no_days
+        subtotal += item.price_b * item.no_days
 
     vat =  0.075 * subtotal
 
@@ -317,8 +317,9 @@ def cancel(request):
     messages.success(request, 'reservation successfully cancelled!')
     return redirect('booked')
 
+# integrating axios API/ using class based view./  without function based view
 class CheckoutView(View):
-    def get( self, request, *args, **kwargs):
+    def get(self, request):
         booked = Booking.objects.filter(user__username= request.user.username, paid=False)
         profile = Profile.objects.get(user__username= request.user.username)
 
