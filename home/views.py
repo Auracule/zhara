@@ -219,7 +219,7 @@ def spa(request):
 def fantasia(request):
     return render(request, 'fantasia.html')
 
-
+@login_required(login_url='signin')
 def booking(request):
     if request.method == 'POST':
         checkin = request.POST['checkin']
@@ -266,6 +266,7 @@ def booking(request):
             return redirect('rooms')
     return redirect('rooms')
 
+@login_required(login_url='signin')
 def booked(request):
     booked= Booking.objects.filter(user__username= request.user.username, paid=False)
     profile = Profile.objects.get(user__username= request.user.username)
@@ -296,6 +297,7 @@ def booked(request):
 
     return render(request, 'booked.html', context)
 
+@login_required(login_url='signin')
 def change(request):
     if request.method == 'POST':
         new = request.POST['new']
@@ -307,6 +309,7 @@ def change(request):
         roomm.save()
     return redirect('booked')
 
+@login_required(login_url='signin')
 def cancel(request):
     room = request.POST['roomid']
     booked_id = Booking.objects.get(pk=room)
@@ -337,6 +340,7 @@ class CheckoutView(View):
         }
         return render(request, 'checkout.html', context)
 
+@login_required(login_url='signin')
 def pay(request):
     if request.method == 'POST':
         api_key = 'sk_test_43762140e809dbc5ffee4d9c1e84d8c72afd6b9d'
