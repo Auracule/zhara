@@ -4,14 +4,17 @@ from . models import *
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['id','img', 'name', 'min_price','description_c']
+    list_display = ['id','img', 'name','slug', 'min_price','description_c']
     list_editable = ['img']
+    prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Category, CategoryAdmin)
 
 class RoomAdmin(admin.ModelAdmin):
-    list_display = ['id', 'category','available','category_id', 'name_r', 'img_r', 'price_r', 'adult_no', 'kids_no','description', 'economy', 'family', 'business', 'royals']
+    list_display = ['id', 'category','slug','available','category_id', 'name_r', 'img_r', 'price_r', 'adult_no', 'kids_no','description', 'economy', 'family', 'business', 'royals']
     list_editable = ['description', 'economy', 'family', 'business', 'royals']
+    prepopulated_fields = {'slug': ('name_r',)}
+
 admin.site.register(Room, RoomAdmin)
 
 class BookingAdmin(admin.ModelAdmin):

@@ -28,7 +28,7 @@
               <li><a class="dropdown-item" href="{% url 'categories' %}">All Categories</a></li>
               {% if categories %}
                 {% for item in categories %}
-                    <li><a class="dropdown-item" href="{% url 'category' item.id %}">{{item.name}}</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' item.id item.slug %}">{{item.name}}</a></li>
                 {% endfor %}
               {% endif %}
             </ul>

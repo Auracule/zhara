@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
+    slug = models.SlugField() 
     img = models.ImageField(upload_to='category', default='category.jpg')
     description_c= models.TextField()
     min_price = models.CharField(max_length=50)
@@ -15,6 +16,7 @@ class Category(models.Model):
 class Room(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name_r = models.CharField(max_length=50)
+    slug = models.SlugField()
     img_r = models.ImageField(upload_to='room', default='room.jpg')
     room_no =models.CharField(max_length=5, default='a')
     price_r = models.IntegerField()
@@ -53,12 +55,6 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.name
-
-    # class Meta:
-    #     db_table = 'gallery'
-    #     managed = True
-    #     verbose_name = 'Gallery'
-    #     verbose_name_plural = 'Gallery'
     
 class Contact(models.Model):
     STATUS = [
@@ -103,4 +99,3 @@ class Profile(models.Model):
         verbose_name = 'Profile'
         verbose_name_plural = 'Profile'
 
-    

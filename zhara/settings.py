@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(k@a6t=w^xg6m(5hkx&ul#atf4)imz)mh*utm9&w$qnx8hfg)_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['44.204.34.42', '*']
+# ALLOWED_HOSTS = ['44.204.34.42', '*']
 
 
 # Application definition
@@ -125,6 +125,17 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'home/static')]
 
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# send email settings 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.privateemail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'codelab@anchorsoftacademy.com'
+EMAIL_HOST_PASSWORD = 'pythonisking@123'
+EMAIL_USE_TLS = True
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

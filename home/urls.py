@@ -5,9 +5,9 @@ from . views import CheckoutView
 urlpatterns = [
     path('',views.index, name='index'),  
     path('categories',views.categories, name='categories'),  
-    path('category/<str:id>',views.category, name='category'),  
+    path('category/<str:id>/<slug:slug>',views.category, name='category'),  
     path('rooms',views.rooms, name='rooms'),  
-    path('room/<str:id>',views.room, name='room'),
+    path('room/<slug:slug>',views.room, name='room'),
     path('contact', views.contact, name='contact'),
     path('contacts', views.contacts, name='contacts'),
     path('about', views.about, name='about'),

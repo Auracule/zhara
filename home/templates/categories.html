@@ -27,7 +27,7 @@
                     <div class="card-body lolabody">
                       <h5 class="card-title">{{items.name|title}}</h5>
                       <p class="card-text">{{items.categories.description}}.</p>
-                      <a href="{% url 'category' items.id %}" class="btn fave">View More....</a>
+                      <a href="{% url 'category' item.slug %}" class="btn fave">View More....</a>
                     </div>
                 </div>
             </div>    

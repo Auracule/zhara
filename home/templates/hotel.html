@@ -15,7 +15,7 @@
                 <div class="card-body wembley">
                   <h5 class="card-title sam">Zhara's {{item.name|title}}</h5>
                   <p class="card-text samm">{{item.description_c|slice:100}}..</p>
-                  <a href="{% url 'category' item.id %}" class="fiew">view more...</a>
+                  <a href="{% url 'category' item.id item.slug %}" class="fiew">view more...</a>
                 </div>
               </div>
             </div>

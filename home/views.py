@@ -5,6 +5,8 @@ import json
 from django.shortcuts import render,redirect
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
+from django.core.mail import EmailMessage
+from django.conf import settings
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
@@ -39,9 +41,10 @@ def categories(request):
     return render(request, 'categories.html', context)
 
 
-def category(request, id):
-    single = Category.objects.get(pk = id)
+def category(request,id, slug):
+    single = Category.objects.get(slug = slug)
     category = Room.objects.filter(category_id = id)
+
     context = {
         'category':category,
         'single':single,
@@ -63,8 +66,8 @@ def rooms(request):
 
     return render(request, 'rooms.html', context)
 
-def room(request, id):
-    room = Room.objects.get(pk=id)
+def room(request, slug):
+    room = Room.objects.get(slug=slug)
 
     context = {
         'room':room,
@@ -148,6 +151,7 @@ def profile(request):
         'profile':profile,
     }
     return render(request, 'profile.html', context)
+
 
 @login_required(login_url='signin')
 def profile_update(request):
@@ -266,6 +270,8 @@ def booking(request):
             return redirect('rooms')
     return redirect('rooms')
 
+
+
 @login_required(login_url='signin')
 def booked(request):
     booked= Booking.objects.filter(user__username= request.user.username, paid=False)
@@ -350,6 +356,7 @@ def pay(request):
         cburl = 'http://44.204.34.42/callback'
         user = User.objects.get(username= request.user.username)
         email = user.email
+        phone = request.POST['phone']
         total = float(request.POST['total']) * 100
         owner = user.profile.id
         transac_code = str(uuid.uuid4())
@@ -363,8 +370,20 @@ def pay(request):
         else:
             trans_back = json.loads(r.text)
             rdurl = trans_back['data']['authorization_url']
+
+    
+        email = EmailMessage(
+            'New Transaction alert',
+            f'A client by the name {user.first_name} with phone number {phone}  has just made reservation. Kindly follow up on his transaction',
+            settings.EMAIL_HOST_USER,
+            ['pogooluwa12@gmail.com']
+        )
+
+        email.fail_silently = True
+        email.send()
         return redirect(rdurl)
     return redirect('booked')
+
 
 def callback(request):
     profile = Profile.objects.get(user__username= request.user.username)
