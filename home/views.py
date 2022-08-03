@@ -374,7 +374,7 @@ def pay(request):
     
         email = EmailMessage(
             'New Transaction alert',
-            f'A client by the name {user.first_name} with phone number {phone}  has just made reservation. Kindly follow up on his transaction',
+            f'A customer by the name {user.first_name} with phone number {phone}  has just made reservation. Kindly follow up on his transaction',
             settings.EMAIL_HOST_USER,
             ['pogooluwa12@gmail.com']
         )
