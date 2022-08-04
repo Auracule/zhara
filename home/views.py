@@ -66,6 +66,7 @@ def rooms(request):
 
     return render(request, 'rooms.html', context)
 
+@login_required(login_url='signin')
 def room(request, slug):
     room = Room.objects.get(slug=slug)
 
@@ -353,7 +354,8 @@ def pay(request):
         api_key = 'sk_test_43762140e809dbc5ffee4d9c1e84d8c72afd6b9d'
         curl = 'https://api.paystack.co/transaction/initialize'
         # cburl = 'http://127.0.0.1:8000/callback'
-        cburl = 'http://44.204.34.42/callback'
+        # cburl = 'http://44.204.34.42/callback'
+        cburl = 'http://3.83.1.77/callback'
         user = User.objects.get(username= request.user.username)
         email = user.email
         phone = request.POST['phone']
